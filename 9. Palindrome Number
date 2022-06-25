@@ -1,0 +1,9 @@
+class Solution:
+    def isPalindrome(self, x: int) -> bool:
+        st=str(x)
+        st1=st[::-1]
+        if st==st1:
+            return True
+        else: 
+            return False
+        

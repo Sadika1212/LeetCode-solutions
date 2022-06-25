@@ -1,0 +1,40 @@
+class Solution:
+    def isValid(self, s: str) -> bool:
+        c1,c2,c3,c4,c5,c6=0,0,0,0,0,0
+        for i in range(0,len(s)):
+            if s[i]=='(':
+                c1+=1
+            elif s[i]==')':
+                c2+=1
+            elif s[i]=='{':
+                c3+=1
+            elif s[i]=='}':
+                c4+=1
+            elif s[i]=='[':
+                c5+=1
+            else:
+                c6+=1
+        lst=[]
+        k=0
+        for j in range(0, len(s)):
+            lst.append(s[j])
+            if lst[k]==')' and lst[k-1]=="(":
+                lst.pop(k)
+                lst.pop(k-1)
+                k-=2
+            elif lst[k]==']' and lst[k-1]=="[":
+                lst.pop(k)
+                lst.pop(k-1)
+                k-=2
+            elif lst[k]=='}' and lst[k-1]=="{":
+                lst.pop(k)
+                lst.pop(k-1)
+                k-=2
+            k+=1
+        
+        if c1==c2 and c3==c4 and c5==c6 and len(lst)==0:
+            return True
+        else:
+            return False
+        
+        

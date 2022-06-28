@@ -1,0 +1,20 @@
+class Solution:
+    def digitSum(self, s: str, k: int) -> str:
+        while len(s)>k:
+            st=""
+            for i in range(0, int(len(s)/k)):
+                m=s[:k]
+                sum=0
+                for y in range(0,len(m)):
+                    sum+=int(m[y])
+                st=st+str(sum)
+                s = s[k:]
+            if len(s)>0:
+                sum=0
+                for y in range(0,len(s)):
+                    sum+=int(s[y])
+                    print(sum)
+                st=st+str(sum)
+            s=st
+        return s
+            

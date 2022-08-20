@@ -1,0 +1,14 @@
+class Solution:
+    def containsDuplicate(self, nums: List[int]) -> bool:
+        dic={}
+        k=0
+        for i in (nums):
+            if i not in dic.keys():
+                dic[i]=k+1
+            else:
+                dic[i]+=1
+        for i in dic:
+            if dic[i]>=2:
+                return True
+        return False
+        

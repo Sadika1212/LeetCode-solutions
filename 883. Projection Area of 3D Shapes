@@ -1,0 +1,19 @@
+class Solution:
+    def projectionArea(self, grid: List[List[int]]) -> int:
+        top=len(grid)*len(grid)
+        front,side=0,0
+        for i in grid:
+            front+=max(i)
+            for j in range(0,len(grid)):
+                if i[j]==0:
+                    top-=1
+
+        for k in range(len(grid)):
+            mx=-9999999
+            for i in grid:
+                if mx<=i[k]:
+                    mx=i[k]
+            side+=mx
+
+        return top+front+side
+        

@@ -1,0 +1,19 @@
+class Solution:
+    def containsNearbyDuplicate(self, nums: List[int], k: int) -> bool:
+        dic={}
+        for i,val in enumerate(nums):
+            if val not in dic.keys():
+                dic[val]=[i]
+            else:
+                dic[val].append(i)
+
+        for val in dic:
+            if len(dic[val])>=2:
+                mn=10000000
+                for i in range(len(dic[val])-1):
+                    ix=abs(dic[val][i]-dic[val][i+1])
+                    if ix<mn:
+                        mn=ix
+                if mn<=k:
+                    return True
+        return False

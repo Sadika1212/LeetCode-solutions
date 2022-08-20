@@ -1,0 +1,14 @@
+class Solution:
+    def singleNumber(self, nums: List[int]) -> int:
+        cnt,dic=0,{}
+        if len(nums)==1:return nums[0]
+        
+        for i,val in enumerate(nums):
+            if val not in dic.keys():
+                dic[val]=[i]
+            else:
+                dic[val].append(i)
+        for i in dic:
+            if len(dic[i])==1:
+                return i
+        

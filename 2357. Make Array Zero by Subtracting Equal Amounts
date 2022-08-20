@@ -1,0 +1,18 @@
+class Solution:
+    def minimumOperations(self, nums: List[int]) -> int:
+        cnt=0
+        while max(nums)!=0:
+            mn=1000000
+            for i in range(len(nums)):
+                if nums[i]<mn and nums[i]!=0:
+                    mn=nums[i]
+            cnt+=1
+            for j in range(0,len(nums)):
+                if nums[j]!=0:nums[j]-=mn
+            if max(nums)==0:
+                return cnt
+        return 0
+        
+        
+                    
+        

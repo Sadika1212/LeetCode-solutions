@@ -1,2 +1,2 @@
 # LeetCode-solutions
-Simple solution in python3
+Simple solutions in python3
